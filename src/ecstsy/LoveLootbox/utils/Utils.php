@@ -119,10 +119,11 @@ class Utils {
         $material->setLore($coloredLore);
 
         $root = $material->getNamedTag();
-        $nbt = clone $root;
+        $lootboxTag = new CompoundTag();
 
-        $nbt->setString("lootbox", $identifier);
-        $root->setTag("LoveLootbox", $nbt);
+        $lootboxTag->setString("lootbox", $identifier);
+
+        $root->setTag("LoveLootbox", $lootboxTag);
 
         return $material;
     }
