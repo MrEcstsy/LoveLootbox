@@ -1,0 +1,51 @@
+CONFIGURATION-RELOAD: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &dConfiguration Files have
+  been reloaded!'
+LOOTBOX:
+  CREATE: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bYou have successfully created &3{NAME}
+    &blootbox!'
+  DELETE: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bYou have successfully deleted &3{NAME}
+    &blootbox!'
+ERROR:
+  INVALID-LOOTBOX: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &dInvalid Lootbox Type!'
+  INVENTORY-FULL: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &dThat players inventory is full!!'
+  CANNOT-ADD-AIR: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bYou cannot add air to a lootbox!'
+  INVALID-SLOT: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bThat is an invalid slot!'
+  NO-REWARDS: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bYou do not have any rewards set
+    for this crate!'
+  NO-PERMISSION: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bYou do not have permission to
+    open this lootbox!'
+  LOOTBOX-ALREADY-EXISTS: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bThis is already a lootbox,
+    please select another name!'
+  LOOTBOX-FAILED-DELETE: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bFailed to delete this
+    lootbox, it either doesn''t exist or something went wrong!'
+  PLAYER-ALREADY-IN-LOOTBOX: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bYou are currently
+    already in an animation so cannot open multiple lootboxes!'
+REWARD:
+  ITEM-REMOVE: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bReward Removed!'
+  ITEM-ADDED: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bSuccessfully added reward to {LOOTBOX}
+    lootbox'
+  SETTINGS:
+    GIVE-ITEM: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bSuccessfully changed give-item
+      setting to {SETTING} &bfor this item'
+  COMMAND-INSTRUCTION: |2
+
+    &f&l(&5&lLove&d&lLootbox&f&l)&7: &bType the command you would like to add to the lootbox
+    &7Type &ccancel &7to cancel this
+  SAVED-REWARDS: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bSuccessfully saved all rewards
+    in this lootbox'
+  COMMAND-CANCELLED: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bCancelled the process of
+    adding a reward!'
+  EDIT:
+    CHANCE:
+      START: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bType the new value you would like
+        the chance to be or type &ccancel'
+      NOT-VALID-NUMBER: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bThat is not a valid number,
+        please try again or type &ccancel'
+GIVE-ALL:
+  MESSAGE: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bEveryone has received a {LOOTBOX}
+    lootbox!'
+  INVENTORY-FULL: '&f&l(&5&lLove&d&lLootbox&f&l)&7: &bYour inventory was full so
+    the item was dropped onto the floor!'
+TOGGLE-LOOTBOX:
+  'ON': '&a&l(!) &aYou have successfully enabled lootbox animations'
+  'OFF': '&c&l(!) &cYou have successfully disabled lootbox animations'

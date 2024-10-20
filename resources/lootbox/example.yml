@@ -1,0 +1,37 @@
+item:
+  material: CHEST # Material of the lootbox
+  name: '&r&cExample Lootbox' # Display Name of the lootbox
+  lore: # Lore of the lootbox
+    - '&r&7This is an example lootbox'
+
+animation:
+  type: 1 # Type of animation of the lootbox
+  settings: # Settings will vary depending on the animation type
+    title: '&r&cexample lootbox'
+    rewards-slots:
+    - 2
+    - 3
+    - 4
+    bonus-rewards-slots:
+    - 5
+    - 6
+    timer-slots:
+    - 0
+    - 8
+    time: 5
+    broadcast:
+      enable: true
+      header: '&r&e&l(!) &e{PLAYER} has just open the &c&lExample Lootbox &eand has
+        gotten'
+      message: '&r&6&l* &e&l{AMOUNT}x {ITEM}'
+    sound:
+      start: random.click
+      prize: player.levelup
+
+skippable: true # Is the animation skippable?
+reward-preview:
+  enabled: true # Preview rewards when you left-click lootbox
+  show-percents: true
+
+rewards: []
+bonus-rewards: []

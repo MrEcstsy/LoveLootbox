@@ -1,0 +1,13 @@
+name: LoveLootbox
+main: ecstsy\LoveLootbox\Loader
+api: 5.3.0
+version: 1.0.0
+author: ecstsy
+
+permissions:
+  lovelootbox.command:
+    default: op
+    description: "Gives access to /lovelootbox command."
+  lovelootbox.give:
+    default: op
+    description: "Gives access to /lovelootbox give command."

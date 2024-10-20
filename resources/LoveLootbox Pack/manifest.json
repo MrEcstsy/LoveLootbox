@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "LoveLootbox",
+        "description": "Inventory RP for LoveLootbox",
+        "uuid": "30f1d73e-a04b-4b13-a604-d4f034cced34",
+        "version": [1, 0, 1],
+        "min_engine_version": [1, 20, 0]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "description": "Inventory RP for LoveLootbox",
+            "uuid": "bf24025a-d23c-47a1-8de4-56565ac7a865",
+            "version": [1, 0, 1]
+        }
+    ]
+}
