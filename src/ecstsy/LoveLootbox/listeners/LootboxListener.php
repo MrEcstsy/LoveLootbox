@@ -23,23 +23,34 @@ class LootboxListener implements Listener {
         $player = $event->getPlayer();
         $item = $event->getItem();
         $tag = $item->getNamedTag();
+        $lootboxTag = $tag->getCompoundTag("LoveLootbox");
 
-        if (($lootbox = $tag->getTag("lootbox")) !== null) {
-            $value = $lootbox->getValue();
-            $config = Utils::getConfiguration("lootbox/" . $value . ".yml");
-
-            $item->pop();
-            $player->getInventory()->setItemInHand($item);
-
-            $lootboxHandler = LootboxHandler::getInstance();
-
-            $menu = $lootboxHandler->getLootboxMenu($player, $config->getNested("animation.type"), $config->get("rewards"), $config->get("bonus-rewards"), $config->getNested("animation.settings"));
-
-            if ($menu === null) {
-                return;
-            }
-
-            $menu->send($player);
+        if ($lootboxTag === null || !$lootboxTag->getTag("lootbox")) {
+            return;
         }
+    
+        $lootboxId = $lootboxTag->getString("lootbox");
+    
+        $config = Utils::getConfiguration("lootbox/" . $lootboxId . ".yml");
+        if ($config === null) {
+            $player->sendMessage("Failed to open the lootbox. Configuration not found!");
+            return;
+        }
+    
+        $item->pop();
+        $player->getInventory()->setItemInHand($item);
+    
+        $lootboxHandler = LootboxHandler::getInstance();
+        $animationType = $config->getNested("animation.type");
+        $rewards = $config->get("rewards");
+        $bonusRewards = $config->get("bonus-rewards");
+        $animationSettings = $config->getNested("animation.settings");
+    
+        $menu = $lootboxHandler->getLootboxMenu($player, $animationType, $rewards, $bonusRewards, $animationSettings);
+    
+        if ($menu !== null) {
+            $menu->send($player);
+        } 
     }
+    
 }
