@@ -8,6 +8,7 @@ use ecstsy\LoveLootbox\commands\subcommands\GiveSubCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat as C;
+use ecstsy\LoveLootbox\Loader;
 
 class LootboxCommand extends BaseCommand {
 
@@ -18,7 +19,7 @@ class LootboxCommand extends BaseCommand {
         
         $this->registerArgument(0, new IntegerArgument("page", true));
 
-        $this->registerSubCommand(new GiveSubCommand("give", "Give lootbox to a player"));
+        $this->registerSubCommand(new GiveSubCommand(Loader::getInstance(), "give", "Give lootbox to a player"));
     }
 
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
