@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ecstsy\LoveLootbox\utils\inventory;
+
 use muqsit\invmenu\type\graphic\InvMenuGraphic;
 use muqsit\invmenu\type\graphic\network\InvMenuGraphicNetworkTranslator;
 use pocketmine\inventory\Inventory;
