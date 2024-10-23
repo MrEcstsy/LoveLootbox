@@ -4,8 +4,10 @@ namespace ecstsy\LoveLootbox\utils;
 
 use ecstsy\LoveLootbox\utils\inventory\CustomSizedInvMenu;
 use ecstsy\LoveLootbox\libs\muqsit\invmenu\InvMenu;
+use ecstsy\LoveLootbox\libs\muqsit\invmenu\transaction\DeterministicInvMenuTransaction;
 use ecstsy\LoveLootbox\libs\muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\inventory\Inventory;
+use pocketmine\item\Item;
 use pocketmine\player\Player;
 use pocketmine\utils\SingletonTrait;
 use pocketmine\utils\TextFormat as C;
@@ -34,6 +36,9 @@ class LootboxHandler {
             case 1:
                 $menu = CustomSizedInvMenu::create(9);
                 $menu->setName(C::colorize($settings['title'] ?? "Lootbox Animation Type 1"));
+                $menu->setListener(InvMenu::readonly(function (DeterministicInvMenuTransaction $transaction): void {
+
+                }));
                 $this->populateMenuWithRewards($menu->getInventory(), $rewards, $bonusRewards, $settings);
                 return $menu;
 
@@ -92,21 +97,31 @@ class LootboxHandler {
     private function populateMenuWithRewards(Inventory $inventory, array $rewards, array $bonusRewards, array $settings): void {
         $rewardSlots = $settings['rewards-slots'] ?? [];
         $bonusRewardSlots = $settings['bonus-rewards-slots'] ?? [];
-
+    
         foreach ($rewards as $index => $reward) {
             if (isset($rewardSlots[$index])) {
                 $slot = $rewardSlots[$index];
-                $inventory->setItem($slot, $reward);
+    
+                if ($reward instanceof Item) {
+                    $inventory->setItem($slot, $reward);
+                } else {
+                    throw new \InvalidArgumentException("Reward at index $index is not a valid Item.");
+                }
             }
         }
-
+    
         foreach ($bonusRewards as $index => $bonusReward) {
             if (isset($bonusRewardSlots[$index])) {
                 $slot = $bonusRewardSlots[$index];
-                $inventory->setItem($slot, $bonusReward);
+    
+                if ($bonusReward instanceof Item) {
+                    $inventory->setItem($slot, $bonusReward);
+                } else {
+                    throw new \InvalidArgumentException("Bonus reward at index $index is not a valid Item.");
+                }
             }
         }
-    }
+    } 
 
     /**
      * Give the player rewards directly.
