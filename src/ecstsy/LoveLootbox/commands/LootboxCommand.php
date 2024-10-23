@@ -2,8 +2,9 @@
 
 namespace ecstsy\LoveLootbox\commands;
 
-use CortexPE\Commando\args\IntegerArgument;
-use CortexPE\Commando\BaseCommand;
+use ecstsy\LoveLootbox\commands\subcommands\CreateSubCommand;
+use ecstsy\LoveLootbox\libs\CortexPE\Commando\args\IntegerArgument;
+use ecstsy\LoveLootbox\libs\CortexPE\Commando\BaseCommand;
 use ecstsy\LoveLootbox\commands\subcommands\GiveSubCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
@@ -20,6 +21,7 @@ class LootboxCommand extends BaseCommand {
         $this->registerArgument(0, new IntegerArgument("page", true));
 
         $this->registerSubCommand(new GiveSubCommand(Loader::getInstance(), "give", "Give lootbox to a player"));
+        $this->registerSubCommand(new CreateSubCommand(Loader::getInstance(), "create", "Create a new lootbox"));
     }
 
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
